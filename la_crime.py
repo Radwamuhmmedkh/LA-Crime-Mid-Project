@@ -13,7 +13,7 @@ st.image('crime_scene.jpg', width = 2000)
 st.markdown("""This Analysis explores crimes patterns in <b>Los Angeles</b> from 2010 till 2025, We will extract meaningful inshigts to uncover several crime patterns.
 <br>The Dataset used is:
 """, unsafe_allow_html= True)
-st.markdown("📊[Data Part 1️⃣](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data)  [Data Part 2️⃣](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data)")
+st.markdown("[Data Part 1️⃣](https://data.lacity.org/Public-Safety/Crime-Data-from-2010-to-2019/63jg-8b9z/about_data)  [Data Part 2️⃣](https://data.lacity.org/Public-Safety/Crime-Data-from-2020-to-Present/2nrs-mtv8/about_data)")
 st.text("Let's take a look at the Data set after cleaning:")
 st.dataframe(la_crime.head())
 st.markdown("""<p> The columns that we are intrested in are: 
@@ -25,7 +25,6 @@ st.markdown("""<p> The columns that we are intrested in are:
             <li>🔪 Crime: Crime type "derived from Crime code"</li>
             <li>🗺️ Area_Name: Name of the area where the crime occurred</li>
             <li>🗺️ Premis_Desc: Description of the premise where crime occurred</li>
-            <li>📋 Status_Desc: Detailed status of the crime</li>
             <li>📍 (LAT, LON): Latitude and Longitude coordinate of the crime location</li>
         </ul> </p>""", unsafe_allow_html= True)
 crimes_per_age_group = la_crime[la_crime['Crime'] == 'OTHERS'].groupby(['Age_group', 'Crm_Cd_Desc'])['DR_NO'].count().reset_index()
