@@ -115,6 +115,10 @@ elif(page == '🕒 Date & Time'):
 
 elif(page == '📍 Location'):
     st.subheader("📍 Explore Crime by: Location")
+    st.text("⚠️ Places where Crimes happend")
+    df = la_crime.groupby(['Premis_Desc'])['DR_NO'].count().reset_index().sort_values(by = 'DR_NO', ascending = False)[:15]
+    st.plotly_chart(px.bar(data_frame = df, y = 'DR_NO', x = 'Premis_Desc'))
+    st.info("⚠️ Most crimes happend in **single family dwelling** followed by **STREET**")
     crime_per_area = la_crime.groupby(['AREA_NAME'])['DR_NO'].count().reset_index().rename(columns= {'DR_NO': 'Count'})
     crime_per_area.sort_values(by = 'Count', ascending= True, inplace= True, ignore_index= True)
     px.bar(data_frame= crime_per_area, x = 'AREA_NAME', y = 'Count')
