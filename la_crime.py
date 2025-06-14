@@ -147,7 +147,7 @@ elif(page == '📍 Location'):
         mode='markers',
         marker=dict(size=10, color='blue'),
         name='Cities',
-        text='West Valley'
+        text= selection
     ))
     fig.update_layout(
         mapbox_style="open-street-map",
